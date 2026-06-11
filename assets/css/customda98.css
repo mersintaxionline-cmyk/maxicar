@@ -1,0 +1,72 @@
+/* ===========================================================
+   Berry — Özel stiller (downloaded style.css/theme3.css üzerine)
+   =========================================================== */
+
+/* ---- CSS Text Logo ----
+   İçerik `data-text` / `data-tagline` attribute'larından okunur;
+   pseudo-element ile render edildiğinden seçilemez / kopyalanamaz.
+*/
+.text-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3px;
+    line-height: 1;
+    text-decoration: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    cursor: pointer;
+}
+
+.text-logo::before {
+    content: attr(data-text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #000;
+    white-space: nowrap;
+}
+
+.text-logo::after {
+    content: attr(data-tagline);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent, #E84040);
+    white-space: nowrap;
+}
+
+/* Header içinde sabit boyut — eski <img>.logo-img kuralıyla çakışmasın diye */
+.site-header .text-logo img,
+.site-footer .text-logo img { display: none !important; }
+
+/* Footer karanlık zemin — beyaz varyant */
+.site-footer .text-logo::before {
+    color: #fff;
+    font-size: 24px;
+}
+.site-footer .text-logo::after {
+    color: #FF8A8A;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+}
+
+/* Küçük ekran */
+@media (max-width: 768px) {
+    .text-logo::before { font-size: 22px; }
+    .text-logo::after  { font-size: 9px; letter-spacing: 0.15em; }
+}
+@media (max-width: 420px) {
+    .text-logo::before { font-size: 19px; }
+    .text-logo::after  { font-size: 8.5px; }
+}

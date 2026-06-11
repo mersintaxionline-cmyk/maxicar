@@ -1,0 +1,82 @@
+/* ===================================================
+   TEMA 3 — Mercan Işıltı | th-gama
+   Renk: Mercan Kırmızı (#FF6B6B) + Beyaz
+   Kart: Glassmorphism (backdrop-blur + yarı-şeffaf)
+   Hero: İki sütunlu (split)
+   Yazı: Poppins + Nunito
+=================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap');
+
+:root {
+    --accent: #E84040;
+    --accent-dark: #C03030;
+    --accent-light: #FDE8E8;
+    --text-primary: #1A0808;
+    --bg-light: #FFF5F5;
+    --radius: 20px;
+}
+
+body { font-family: 'Inter', -apple-system, sans-serif; }
+
+h1,h2,h3,.section-title,.logo .logo-name,.feature-card h3,.vehicle-card-body h3,
+.vehicle-detail-info h1,.page-header h1,.footer-col h4,.step-number,
+.stat-item .number,.vehicle-detail-features h3,.info-box h3,.admin-main h1,.admin-sidebar h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Hero: sola hizalı split */
+.hero { text-align: left; }
+.hero-content { max-width: 560px; }
+
+/* ARAÇ KARTI: Glassmorphism efekti */
+.vehicle-grid { background: linear-gradient(135deg, #ffe8e8 0%, #fff5f5 100%); padding: 24px; border-radius: 24px; }
+.vehicle-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.60);
+    box-shadow: 0 8px 28px rgba(232,64,64,0.12);
+    border-radius: var(--radius);
+    transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.vehicle-card:hover {
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 16px 44px rgba(232,64,64,0.22);
+    transform: translateY(-6px);
+}
+.vehicle-card-image { height: 190px; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; }
+.vehicle-card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Feature kartlar: icon solda */
+.feature-cards { display: flex; flex-direction: column; gap: 16px; }
+.feature-card {
+    display: flex; align-items: flex-start; gap: 18px; text-align: left;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
+    padding: 22px 24px;
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 2px 12px rgba(232,64,64,0.08);
+}
+.feature-card .icon { min-width: 52px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+
+/* Butonlar: hap şeklinde */
+.btn { border-radius: 50px; font-weight: 700; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); }
+
+.footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
+.site-footer { background: var(--text-primary); }
+.top-bar { background: var(--accent-dark); font-size: 0.82rem; }
+.page-header { background: var(--text-primary); position: relative; }
+.page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--accent), var(--accent-dark)); }
+.feature-badge { background: var(--accent-light); color: var(--accent-dark); border-radius: 50px; }
+.info-box { border-radius: var(--radius); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid var(--accent-light); }
+.badge { border-radius: 50px; }
+.usp-item { border-radius: 50px; }
+.spec-item { border-radius: 12px; }
+
+@media (max-width: 768px) {
+    .vehicle-grid { padding: 12px; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
